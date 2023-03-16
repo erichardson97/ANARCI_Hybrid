@@ -35,7 +35,12 @@ if sys.argv[1] != "install":
     sys.exit(0)
 
 try:
-    ANARCI_LOC = importlib.util.find_spec("anarci").submodule_search_locations[0]
+    module_dir_list = [os.path.join(os.getcwd(), 'lib', 'python')]
+    ANARCI_LOC = importlib.machinery.PathFinder().find_spec("ANARCI", module_dir_list)
+    if ANARCI_LOC is None:
+        raise Exception("ANARCI module not found - maybe you deleted it or something you freakazoid")
+    else:
+        ANARCI_LOC = ANARCI_LOC.submodule_search_locations[0]
 except Exception as e:
     sys.stderr.write(e.message)
     sys.exit(1)
