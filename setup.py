@@ -36,7 +36,8 @@ if sys.argv[1] != "install":
 
 try:
     module_dir_list = [os.path.join(os.getcwd(), 'lib', 'python')]
-    ANARCI_LOC = importlib.machinery.PathFinder().find_spec("ANARCI", module_dir_list)
+    print(module_dir_list)
+    ANARCI_LOC = importlib.machinery.PathFinder().find_spec("anarci", module_dir_list)
     if ANARCI_LOC is None:
         raise Exception("ANARCI module not found - maybe you deleted it or something you freakazoid")
     else:
@@ -64,4 +65,6 @@ print(o.decode())
 print(e.decode())
 
 shutil.copy( "curated_alignments/germlines.py", ANARCI_LOC )
+if os.path.exists(os.path.join(ANARCI_LOC, "dat/HMMs/")):
+  shutil.rmtree(os.path.join(ANARCI_LOC, "dat/HMMs/"))
 shutil.copytree( "HMMs", os.path.join(ANARCI_LOC, "dat/HMMs/") )

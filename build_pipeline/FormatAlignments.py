@@ -36,6 +36,7 @@ acid_set = set( amino_acids+["."])
 file_path  = os.path.split(__file__)[0]
 fasta_path = os.path.join( file_path, "IMGT_sequence_files", "fastafiles" )
 curated_path = os.path.join( file_path, "curated_alignments" )
+muscle_path = os.path.abspath(os.path.join(file_path,'../bin/muscle'))
 
 all_species = ["Homo_sapiens",
            "Mus",
@@ -178,7 +179,7 @@ def format_j_genes(jalignments):
     if sys.platform == "darwin":
         pr = Popen( [ "muscle_macOS", "-in", ffile, "-gapopen", "-10", "-out", al_filename, ], stdout=PIPE, stderr=PIPE )
     else:
-        pr = Popen( [ "muscle", "-in", ffile, "-gapopen", "-10", "-out", al_filename, ], stdout=PIPE, stderr=PIPE )
+        pr = Popen( [ muscle_path, "-in", ffile, "-gapopen", "-10", "-out", al_filename, ], stdout=PIPE, stderr=PIPE )
     o, e = pr.communicate()
     aligned = read_fasta( al_filename )
     new_jalignments = {} 
