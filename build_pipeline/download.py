@@ -1,4 +1,4 @@
-import importlib, subprocess, os, shutil
+import importlib.util, subprocess, os, shutil
 
 ANARCI_LOC = importlib.util.find_spec("anarci")
 if ANARCI_LOC is None:
