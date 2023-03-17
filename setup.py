@@ -33,6 +33,6 @@ setup(name='anarci',
 import sys
 if sys.argv[1] != "install":
     sys.exit(0)
-subprocess.call('python build_pipeline/download.py')
+subprocess.call('python build_pipeline/download.py', shell = True)
 
 
