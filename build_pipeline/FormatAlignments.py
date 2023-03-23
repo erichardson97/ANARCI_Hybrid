@@ -470,7 +470,7 @@ def main():
 
     all_C_alignments = { "CC":ccalignments,"C1":c1alignments,"C2":c2alignments,"C2":c2alignments}
     
-    write_germlines( all_valignments, all_jalignments, all_C_alignments )
+    write_germlines( all_valignments, all_jalignments)
 
     # Combine the alignments to make putative germline alignments (obviously no d gene in there for Hs)
     # Write them to a stockholm alignment file.    
