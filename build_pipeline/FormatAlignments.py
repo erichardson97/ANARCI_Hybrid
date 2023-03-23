@@ -334,10 +334,10 @@ def output_python_lookup(all_gene_alignments, path=None):
         print("all_germlines = "+repr(all_gene_alignments), file=outfile)
 
 def write_stockholm( sequences, ID, outfile):
-        print("# STOCKHOLM 1.0", file=outfile)
-        print("#=GF ID %s"%ID, file=outfile)
         if len(sequences) == 0:
             return None
+        print("# STOCKHOLM 1.0", file=outfile)
+        print("#=GF ID %s"%ID, file=outfile)
         pad_length = max(list(map(len, list(sequences.keys()))))+1
         for s in sequences:
             print(s.replace(" ", "_").ljust(pad_length), sequences[s].replace(".","-"), file=outfile)
