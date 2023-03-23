@@ -428,12 +428,12 @@ def main():
             jalignments[ (species, chain_type) ]  = read_alignment( os.path.join( fasta_path , "%s_%sJ.fasta"%(species, chain_type) ), region_name= "J-REGION") 
 
             ### Comment out if you want constant regions?
-            #if chain_type == "H":
-            #    c1alignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="CH1") 
-            #    c2alignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="CH2") 
-            #    c3alignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="CH3") 
-            #else:
-            #    ccalignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="C-REGION") 
+            if chain_type == "H":
+               c1alignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="CH1") 
+               c2alignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="CH2") 
+               c3alignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="CH3") 
+            else:
+               ccalignments[ (species, chain_type) ]   = read_alignment( os.path.join( fasta_path , "%s_%sC.fasta"%(species, chain_type) ), region_name="C-REGION") 
 
             all_valignments[ (species, chain_type) ]  = read_alignment( os.path.join( fasta_path , "%s_%sV.fasta"%(species, chain_type) ), region_name= "V-REGION", read_all=True)
             all_jalignments[ (species, chain_type) ]  = read_alignment( os.path.join( fasta_path , "%s_%sJ.fasta"%(species, chain_type) ), region_name= "J-REGION", read_all=True) 
@@ -454,16 +454,16 @@ def main():
     valignments = format_v_genes(valignments)
     jalignments = format_j_genes(jalignments)
 
-    #ccalignments = format_c_genes(ccalignments, 'CC')
-    #c1alignments = format_c_genes(c1alignments, 'C1')
-    #c2alignments = format_c_genes(c2alignments, 'C2')
-    #c3alignments = format_c_genes(c3alignments, 'C3')
+    ccalignments = format_c_genes(ccalignments, 'CC')
+    c1alignments = format_c_genes(c1alignments, 'C1')
+    c2alignments = format_c_genes(c2alignments, 'C2')
+    c3alignments = format_c_genes(c3alignments, 'C3')
 
 
     all_valignments = format_v_genes(all_valignments)
     all_jalignments = format_j_genes(all_jalignments)
 
-    #all_C_alignments = { "CC":ccalignments,"C1":c1alignments,"C2":c2alignments,"C2":c2alignments}
+    all_C_alignments = { "CC":ccalignments,"C1":c1alignments,"C2":c2alignments,"C2":c2alignments}
     
     write_germlines( all_valignments, all_jalignments )
 
@@ -471,11 +471,11 @@ def main():
     # Write them to a stockholm alignment file.    
     combined_sequences  = make_putative_alignments( valignments, jalignments )
 
-    # Write the constant domains each to file.
-    #output_C_alignments(ccalignments, 'CC')
-    #output_C_alignments(c1alignments, 'C1')
-    #output_C_alignments(c2alignments, 'C2')
-    #output_C_alignments(c3alignments, 'C3')
+    Write the constant domains each to file.
+    output_C_alignments(ccalignments, 'CC')
+    output_C_alignments(c1alignments, 'C1')
+    output_C_alignments(c2alignments, 'C2')
+    output_C_alignments(c3alignments, 'C3')
 
 
 main()
