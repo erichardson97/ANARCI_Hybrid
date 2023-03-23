@@ -36,9 +36,9 @@ urls = { "HV": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGHV&species
          "DV": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+TRDV&species=%s",
          "DJ": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.6+TRDJ&species=%s"
          
-         #"HC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGHC&species=%s",
-         #"KC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGKC&species=%s",
-         #"LC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGLC&species=%s",
+         "HC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGHC&species=%s",
+         "KC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGKC&species=%s",
+         "LC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGLC&species=%s",
        }
 
 
