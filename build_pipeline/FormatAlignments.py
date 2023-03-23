@@ -471,7 +471,7 @@ def main():
     # Write them to a stockholm alignment file.    
     combined_sequences  = make_putative_alignments( valignments, jalignments )
 
-    Write the constant domains each to file.
+   # Write the constant domains each to file.
     output_C_alignments(ccalignments, 'CC')
     output_C_alignments(c1alignments, 'C1')
     output_C_alignments(c2alignments, 'C2')
