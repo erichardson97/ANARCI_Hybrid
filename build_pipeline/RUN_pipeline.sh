@@ -28,10 +28,10 @@ if [ ! -d $DIR/HMMs ]; then
   mkdir -p $DIR/HMMs
 fi
 
-hmmbuild --hand $DIR/HMMs/ALL.hmm $DIR/curated_alignments/ALL.stockholm
-#hmmbuild --hand $DIR/HMMs/ALL_AND_C.hmm $DIR/curated_alignments/ALL_AND_C.stockholm
+#hmmbuild --hand $DIR/HMMs/ALL.hmm $DIR/curated_alignments/ALL.stockholm
+hmmbuild --hand $DIR/HMMs/ALL_AND_C.hmm $DIR/curated_alignments/ALL_AND_C.stockholm
 
 # Turn the output HMMs file into a binary form. This is required for hmmscan that is used in ARNACI.
-hmmpress -f $DIR/HMMs/ALL.hmm 
-#hmmpress -f $DIR/HMMs/ALL_AND_C.hmm
+#hmmpress -f $DIR/HMMs/ALL.hmm 
+hmmpress -f $DIR/HMMs/ALL_AND_C.hmm
 
