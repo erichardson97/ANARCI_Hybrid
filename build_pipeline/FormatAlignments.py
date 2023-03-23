@@ -350,8 +350,6 @@ def output_C_alignments(alignments, c_name):
     Write a stockholm for all C domains. 
     """
     for species, chain_type in alignments:
-        if len(alignments[(species, chain_type) ]["%s_%s_%s"%(c_name, translations[species], chain_type)]) == 0:
-            return None
         output_stockholm( alignments[(species, chain_type) ], "%s_%s_%s"%(c_name, translations[species], chain_type) )
 
 def output_stockholm_all_and_C(all_sequences, all_C_alignments, path=None):
