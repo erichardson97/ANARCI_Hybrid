@@ -415,7 +415,7 @@ def main():
     print("\nFormatting alignments\n")
     valignments, jalignments = {},{}
     all_valignments, all_jalignments = {},{}
-    #ccalignments, c1alignments, c2alignments, c3alignments = {}, {}, {}, {}
+    ccalignments, c1alignments, c2alignments, c3alignments = {}, {}, {}, {}
 
     print("IGs")
     for species in all_species:
