@@ -11,7 +11,6 @@ for species in all_species:
         if not os.path.isfile(os.path.join(fasta_path, "%s_%sV.fasta" % (species, chain_type))):
             continue
 
-        print(species, chain_type)
         valignments[(species, chain_type)] = read_alignment(
             os.path.join(fasta_path, "%s_%sV.fasta" % (species, chain_type)), region_name="V-REGION")
         jalignments[(species, chain_type)] = read_alignment(

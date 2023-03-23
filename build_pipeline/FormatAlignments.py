@@ -427,8 +427,8 @@ def main():
         for chain_type in "HKL":
             if not os.path.isfile( os.path.join( fasta_path, "%s_%sV.fasta" % (species,chain_type)) ):
                 continue
-
-            print(species, chain_type)
+            if not os.path.isfile( os.path.join( fasta_path, "%s_%sC.fasta" % (species, chain_type)) ):
+                continue
             valignments[ (species, chain_type) ]  = read_alignment( os.path.join( fasta_path , "%s_%sV.fasta"%(species, chain_type) ), region_name= "V-REGION" )
             jalignments[ (species, chain_type) ]  = read_alignment( os.path.join( fasta_path , "%s_%sJ.fasta"%(species, chain_type) ), region_name= "J-REGION") 
 
@@ -482,8 +482,7 @@ def main():
     output_C_alignments(c2alignments, 'C2')
     output_C_alignments(c3alignments, 'C3')
 
-#
-# main()
+main()
 
 
 
