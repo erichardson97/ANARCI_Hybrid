@@ -477,8 +477,8 @@ def main():
     output_C_alignments(c2alignments, 'C2')
     output_C_alignments(c3alignments, 'C3')
 
-
-main()
+#
+# main()
 
 
 
