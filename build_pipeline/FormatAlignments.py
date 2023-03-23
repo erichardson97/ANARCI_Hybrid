@@ -465,11 +465,11 @@ def main():
 
     all_C_alignments = { "CC":ccalignments,"C1":c1alignments,"C2":c2alignments,"C2":c2alignments}
     
-    write_germlines( all_valignments, all_jalignments )
+    write_germlines( all_valignments, all_jalignments, all_C_alignments )
 
     # Combine the alignments to make putative germline alignments (obviously no d gene in there for Hs)
     # Write them to a stockholm alignment file.    
-    combined_sequences  = make_putative_alignments( valignments, jalignments )
+    combined_sequences  = make_putative_alignments( valignments, jalignments, all_C_alignments )
 
    # Write the constant domains each to file.
     output_C_alignments(ccalignments, 'CC')
