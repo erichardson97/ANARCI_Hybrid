@@ -70,7 +70,7 @@ from .germlines import all_germlines
 all_species = list(all_germlines['V']['H'].keys())
 
 amino_acids = sorted(list("QWERTYIPASDFGHKLCVNM"))
-set_amino_acids = set(amino_acids)
+set_amino_acids = set(amino_acids+['X'])
 anarci_path  = os.path.split(__file__)[0]
 
 scheme_short_to_long = { "m":"martin", "c":"chothia", "k":"kabat","imgt":"imgt", "kabat":"kabat", "chothia":"chothia", "martin":"martin", "i":"imgt", "a":"aho","aho":"aho","wolfguy":"wolfguy", "w":"wolfguy"}
